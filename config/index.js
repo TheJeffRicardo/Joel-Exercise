@@ -3,11 +3,11 @@ const {createPool} = require('mysql')
 
 //Create connection variable
 let connection = createPool({
-    host: process.env.dbHost,
-    user: process.env.dbUser,
-    password: process.env.dbPassword,
-    port: process.env.dbPort,
-    database: process.env.dbDatabase,
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    port: process.env.DBPORT,
+    database: process.env.DATABASE,
     multipleStatement: true
 })
 

@@ -32,6 +32,10 @@ router.post('/login', bodyParser.json(), (req, res)=>{
 router.get('/users', (req, res)=>{
     user.fetchUsers(req, res);
 });
+// Retrieve all users
+router.get('/user/:id', (req, res)=>{
+    user.fetchUser(req, res);
+});
 // Update
 router.put('/user/:id',bodyParser.json(), (req, res)=>{
     user.updateUser(req, res);
@@ -50,19 +54,16 @@ router.get('/products', (req, res)=> {
     product.fetchProducts(req, res);
 })
 // Fetch a single product
-router.get('/product/:id', 
-(req, res)=> {
+router.get('/product/:id', (req, res)=> {
     product.fetchProduct(req, res);
 })
 // Add a new product
-router.post('/product', 
-bodyParser.json(), 
+router.post('/product', bodyParser.json(), 
 (req, res)=> {
     product.addProduct(req, res);
 })
 // Update a product
-router.put('/product/:id', 
-bodyParser.json(),
+router.put('/product/:id', bodyParser.json(),
 (req, res)=> {
     product.updateProduct(req, res);
 })

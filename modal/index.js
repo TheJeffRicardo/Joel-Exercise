@@ -60,7 +60,7 @@ class User {
         `;
         //db
         db.query(strQry, (err, data)=>{
-            if(err) throw err;
+            if(err) throw err
             else res.status(200).json( 
                 {results: data} )
         })
@@ -115,6 +115,7 @@ class User {
         let data = req.body;
         if(data.userPass !== null || 
             data.userPass !== undefined)
+            console.log(data.userPass);
             data.userPass = hashSync(data.userPass, 15)
         const strQry = 
         `
@@ -151,7 +152,7 @@ class Product {
     fetchProducts(req, res) {
         const strQry = `SELECT id, prodName, prodDescription, 
         levels, prodPrice, prodQuantity, imgURL
-        FROM products;`
+        FROM Products;`
         db.query(strQry, (err, results)=> {
             if(err) throw err
             res.status(200).json({results: results})
@@ -160,7 +161,7 @@ class Product {
     fetchProduct(req, res) {
         const strQry = `SELECT id, prodName, prodDescription, 
         levels, prodPrice, prodQuantity, imgURL
-        FROM products
+        FROM Products
         WHERE id = ?;`
         db.query(strQry, [req.params.id], (err, results)=> {
             if(err) throw err

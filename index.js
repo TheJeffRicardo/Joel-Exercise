@@ -4,7 +4,7 @@ const router = require('./controller');
 // cors
 const cors = require('cors');
 // port 
-const port = parseInt(process.env.PORT) || 3000;
+const port = process.env.PORT || 4000;
 // Express app
 const app = express();
 // Middleware
@@ -37,5 +37,5 @@ app.use(
 
 // Server is running
 app.listen(port, ()=> {
-    console.log(`Server is running`)
+    console.log(`Server is running ${port}`)
 })
